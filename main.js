@@ -102,6 +102,8 @@ function someFunc() {
   console.log('I am being hoisted')
 }
 
+// 04 july class
+
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant']
 
 console.log(animals.slice(2))
