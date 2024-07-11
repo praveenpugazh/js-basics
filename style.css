@@ -1,3 +1,25 @@
 .btn {
   color: red;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.side-bar {
+  background-color: #ccc;
+  height: 100vh;
+  padding: 20px;
+  margin-right: 20px;
+}
+.visibility {
+  display: none;
+}
+body {
+  display: flex;
+}
+

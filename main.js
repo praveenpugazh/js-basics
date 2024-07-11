@@ -160,6 +160,22 @@ btn.addEventListener('click', () => {
   } else {
     alert('already tag exists')
   }
-  // console.log('clicked')
+})
+
+//11-07-24
+
+const pTag = document.querySelectorAll('.p-tag')
+
+console.log(pTag)
+pTag[0].addEventListener('click', () => {
+  const title = document.getElementById('title')
+  title.classList.toggle('hidden')
+})
+
+const img = document.getElementsByTagName('img')
+const sideBar = document.getElementById('side-bar')
+console.log(img)
+img[0].addEventListener('click', () => {
+  sideBar.classList.toggle('visibility')
 })
 

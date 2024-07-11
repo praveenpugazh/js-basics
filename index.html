@@ -13,13 +13,27 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="side-bar" id="side-bar">
+      <p>Menu</p>
+      <ul>
+        <li>Home</li>
+        <li>History</li>
+        <li>Music</li>
+      </ul>
+    </div>
+    <div class="main">
+    <nav class="flex">
+      <img src="./burger-bar.png" alt="" width="25px">
       <h1 class="text-primary">Hi Class!</h1>
+    </nav>
       <p>js batch is learning js</p>
       <button id="click-btn" >Click me to show the date</button>
       <div id="date-parent">
       </div>
-      <button>Another button</button>
+      <p class="p-tag">Click to reveal</p>
+      <h1 id="title" class="hidden">Title</h1>
     </div>
+  </div>
     <script src="./main.js">
       console.log('hi')
     </script>
