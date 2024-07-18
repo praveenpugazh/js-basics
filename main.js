@@ -147,7 +147,9 @@ const btn = document.getElementById('click-btn')
 const dateParent = document.getElementById('date-parent')
 
 // console.log(btn)
-btn.addEventListener('click', () => {
+btn.addEventListener('click', (event) => {
+  event.preventDefault() // to prevent submit and reload
+  event.stopPropagation() // to avoid bubbling
   const hTag = document.getElementById('h-tag')
   if (!hTag) {
     const todayDate = new Date()
@@ -164,18 +166,48 @@ btn.addEventListener('click', () => {
 
 //11-07-24
 
-const pTag = document.querySelectorAll('.p-tag')
+const pTag = document.getElementsByClassName('p-tag')
 
 console.log(pTag)
 pTag[0].addEventListener('click', () => {
   const title = document.getElementById('title')
   title.classList.toggle('hidden')
+  title.style.color = 'red'
+  title.classList.add('title-class')
 })
 
 const img = document.getElementsByTagName('img')
 const sideBar = document.getElementById('side-bar')
 console.log(img)
 img[0].addEventListener('click', () => {
-  sideBar.classList.toggle('visibility')
+  if (sideBar.style.display === 'none') {
+    sideBar.style.display = 'block'
+  } else {
+    sideBar.style.display = 'none'
+  }
 })
+
+const submitBtn = document.querySelector('#submit-btn')
+submitBtn.addEventListener('click', (event) => {
+  console.log('clicked')
+  event.preventDefault()
+})
+
+const modalBtn = document.getElementById('modal-btn')
+
+modalBtn.addEventListener('click', () => {
+  const modalWrapper = document.getElementById('modal-wrap')
+  modalWrapper.classList.toggle('wrapper-hide')
+})
+
+const API_KEY = '050163317b090e3fc1f7e82d746dd313'
+
+const API_BASE_URL = `https://api.openweathermap.org/data/2.5/weather?q=Chennai&appid=${API_KEY}`
+
+console.log('going to fetch')
+fetch(API_BASE_URL).then((res) =>
+  res.json().then((data) => {
+    console.log(data)
+  })
+)
 

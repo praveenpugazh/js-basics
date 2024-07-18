@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Weather App</h1>
+    <form action="">
+      <input type="text" placeholder="Enter your city name" id="city-input" />
+      <button>Submit</button>
+      <div id="weather-content"></div>
+    </form>
+    <div>
+      <h1>Profiles in our app</h1>
+      <form action="">
+        <input type="text" placeholder="add profile here" id="profile-input" />
+        <button id="profile-btn">Submit</button>
+      </form>
+      <div id="profiles"></div>
+    </div>
+    <script>
+      const inputCity = document.getElementById('city-input')
+      const submitBtn = document.getElementsByTagName('button')
+      const weatherDiv = document.getElementById('weather-content')
+      const API_KEY = '050163317b090e3fc1f7e82d746dd313'
+
+      const kelvinToDegrees = (kelvin) => {
+        const degrees = kelvin - 273.15
+        return degrees
+      }
+      submitBtn[0].addEventListener('click', (e) => {
+        e.preventDefault()
+        const city = inputCity.value
+        const API_BASE_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+
+        fetch(API_BASE_URL).then((res) =>
+          res.json().then((data) => {
+            console.log(data)
+
+            const pTag = document.createElement('p')
+            pTag.textContent =
+              'Weather now is ' + kelvinToDegrees(data.main.temp).toFixed(2)
+            weatherDiv.appendChild(pTag)
+          })
+        )
+        inputCity.value = ''
+      })
+
+      const profileInput = document.getElementById('profile-input')
+      const profileBtn = document.getElementById('profile-btn')
+      const profilesDiv = document.getElementById('profiles')
+
+      fetch('http://localhost:3000/profile').then((res) =>
+        res.json().then((data) => {
+          console.log(data)
+          data.forEach((val) => {
+            const pTag = document.createElement('p')
+            pTag.innerText = val.name
+            profilesDiv.appendChild(pTag)
+          })
+        })
+      )
+      profileBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        const pTag = document.createElement('p')
+        pTag.innerText = profileInput.value
+        profilesDiv.appendChild(pTag)
+        fetch('http://localhost:3000/profile/3', {
+          method: 'PUT',
+          body: JSON.stringify({ name: profileInput.value })
+        })
+      })
+    </script>
+  </body>
+</html>
+

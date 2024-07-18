@@ -10,7 +10,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="side-bar" id="side-bar">
@@ -22,18 +22,31 @@
       </ul>
     </div>
     <div class="main">
-    <nav class="flex">
-      <img src="./burger-bar.png" alt="" width="25px">
-      <h1 class="text-primary">Hi Class!</h1>
-    </nav>
+      <nav class="flex">
+        <img src="./burger-bar.png" alt="" width="25px" />
+        <h1 class="text-primary">Hi Class!</h1>
+      </nav>
       <p>js batch is learning js</p>
-      <button id="click-btn" >Click me to show the date</button>
-      <div id="date-parent">
-      </div>
+      <button id="click-btn">Click me to show the date</button>
+      <div id="date-parent"></div>
       <p class="p-tag">Click to reveal</p>
       <h1 id="title" class="hidden">Title</h1>
+      <button id="modal-btn">Click to show modal</button>
+      <div id="modal-wrap" class="wrapper wrapper-hide">
+        <div class="modals">
+          <h1>Modal title</h1>
+          <p>Model content / body goes here</p>
+          <button>Close</button>
+          <button>Ok</button>
+        </div>
+      </div>
+      <form action="">
+        <input type="text" placeholder="name" />
+        <button id="submit-btn">Submit</button>
+      </form>
+      <a href="./weather.html">Weather App</a>
     </div>
-  </div>
+
     <script src="./main.js">
       console.log('hi')
     </script>
