@@ -211,3 +211,24 @@ fetch(API_BASE_URL).then((res) =>
   })
 )
 
+// 19-07
+
+const counts = [3, 5, 7, 9, 11]
+
+/* for(let i=0; i<counts.length;i++){
+  sum = sum + counts[i]
+}
+console.log(sum)
+
+ */
+
+/* const newCounts = counts.reduce((sum,value) => {
+  return sum + value
+})
+ */
+let sum = 0
+const newCounts = counts.map((value) => {
+  sum = sum + value
+  return sum
+})
+console.log(newCounts)
